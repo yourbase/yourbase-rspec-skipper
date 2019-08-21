@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/yourbase/yourbase-rspec-skipper'
   s.summary     = 'Skip more tasks in YourBase'
   s.description = 'A library for use with YourBase that will enable using Skipper in the CI'
-  s.license     = 'Apache2'
+  s.license     = 'Apache-2.0'
 
   s.required_ruby_version = '>= 1.9.3'
 
