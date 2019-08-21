@@ -30,5 +30,6 @@ that for you.
 
 ## How do I use this?
 
-Simply add `yourbase_rspec_skipper` to your Gemfile and then `require
-yourbase_rspec_skipper` in your Rake file. 
+Simply add `yourbase-rspec-skipper` to your Gemfile and then `require
+yourbase/rspec/skipper` in your `Rakefile`. 
+
