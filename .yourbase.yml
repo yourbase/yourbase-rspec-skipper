@@ -7,7 +7,8 @@ build_targets:
     commands:
       - gem install bundler
       - bundle install
-      - bundle exec rake release 
+      - bash ./release.sh
+
 
   - name: test
     commands:

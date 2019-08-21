@@ -4,7 +4,7 @@ $:.push File.expand_path('../lib', __FILE__)
 require 'yourbase/rspec/skipper/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'yourbase_rspec_skipper'
+  s.name        = 'yourbase-rspec-skipper'
   s.version     = YourBase::RSpec::Skipper::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['John Ewart']
