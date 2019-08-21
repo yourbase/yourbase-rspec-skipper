@@ -11,7 +11,6 @@ module YourBase
           ::RSpec::Core::RakeTask.prepend ::YourBase::RSpec::Skipper::CoreRakeTaskExtension
       end
 
-
       module CoreRakeTaskExtension
 
         # Run each of them for now; TBD: use the build-graph API 
@@ -21,7 +20,7 @@ module YourBase
 
         def spec_command
           if File.exist? "/skipper"
-            "/skipper -- rspec #{@pattern}"
+            "/skipper -- rspec #{@pattern.join ' '}"
           else 
             super
           end
@@ -29,11 +28,14 @@ module YourBase
 
         def run_task(verbose)
           original_pattern = @pattern
-          files = Dir.glob(@pattern)
-          files.each do |f|
-            @pattern = f
+          files = Dir.glob(@pattern).sort
+          slice_size = [(files.size / 10) + 1, files.count].min
+          puts "Will run specs in blocks of #{slice_size}"
+          groups = files.each_slice(slice_size).to_a
+          groups.each do |g|
+            @pattern = g
             command = spec_command
-            puts "Running rspec with skipper for #{f}..."
+            puts "Running rspec with skipper for #{g}..."
             puts command if verbose
 
             success = system(command)
