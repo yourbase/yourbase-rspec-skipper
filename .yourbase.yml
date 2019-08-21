@@ -4,25 +4,30 @@ dependencies:
 
 build_targets:
   - name: release
+    environment:
+      - RUBYGEMS_API_KEY=4ebff9d5538b0e31aa6bb348cb6f6612
+    container:
+      image: yourbase/yb_ubuntu:16.04
     commands:
       - gem install bundler
       - bundle install
-      - gem build yourbase-rspec-skipper.gemspec
-      - gem push *.gem
+      - bundle exec rake
+      - bash release.sh
 
 
   - name: test
+    container:
+      image: yourbase/yb_ubuntu:16.04
     commands:
       - gem install bundler
       - bundle install 
       - bundle exec rake
 
-
 ci:
   builds:
     - name: run_tests
       build_target: test
-
+      when: tagged IS false
     - name: do_release
       build_target: release
       when: tagged IS true
