@@ -4,8 +4,6 @@ dependencies:
 
 build_targets:
   - name: release
-    environment:
-      - RUBYGEMS_API_KEY=4ebff9d5538b0e31aa6bb348cb6f6612
     container:
       image: yourbase/yb_ubuntu:16.04
     commands:

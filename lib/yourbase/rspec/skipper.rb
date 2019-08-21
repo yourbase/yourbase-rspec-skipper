@@ -26,7 +26,6 @@ module YourBase
               task.run_task(verbose)
             end
           else
-            puts "Will run the one test normally"
             super(verbose)
           end
         end
