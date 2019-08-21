@@ -1,7 +1,7 @@
 require "rubygems"
 require "bundler"
 require "rspec/core/rake_task"
-require "./lib/yourbase_rspec_skipper"
+require "./lib/yourbase/rspec/skipper"
 
 Bundler::GemHelper.install_tasks
 

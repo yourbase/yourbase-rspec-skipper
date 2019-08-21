@@ -1,6 +1,6 @@
 require 'spec_helper.rb'
 
-describe YourBaseRSpecSkipper do 
+describe YourBase::RSpec::Skipper do 
   it 'smiles at you' do 
     puts ":)"
   end
