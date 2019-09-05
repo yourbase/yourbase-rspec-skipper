@@ -13,8 +13,6 @@ rescue Bundler::BundlerError => e
   exit e.status_code
 end
 
-YourBase::RSpec::Skipper.init!
-
 RSpec::Core::RakeTask.new do |t|
   t.rspec_opts = ["-c", "-f progress", "-r ./spec/spec_helper.rb"]
   t.pattern = 'spec/**/*_spec.rb'
