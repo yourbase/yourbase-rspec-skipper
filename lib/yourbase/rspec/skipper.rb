@@ -1,3 +1,4 @@
+require 'rspec/core/rake_task'
 
 module YourBase
   module RSpec
@@ -11,6 +12,33 @@ module YourBase
         end
       end
 
+    end
+  end
+end
+
+module YourBase
+  module RSpec
+    module Skipper
+      class RakeTask < ::RSpec::Core::RakeTask
+
+         def run_task(verbose)
+           puts "[YB] Running YourBase RSpec Rake task..."
+
+           begin
+             super(verbose)
+           rescue 
+           end
+
+           if ::YourBase::RSpec::Skipper.initialized?
+             begin
+               ::YourBase::RSpec::Skipper.finish!
+             rescue => e
+               puts "[YB] Error finishing: #{e}"
+             end
+           end
+         end
+
+      end
     end
   end
 end
@@ -32,6 +60,7 @@ begin
       ::YourBase::RSpec::Skipper.inject!
     rescue LoadError => e
       puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
+      puts "Error: #{e}"
     end
   end
 
