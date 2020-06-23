@@ -1,8 +1,8 @@
-# YourBase RSpec Accelerator 
+# YourBase RSpec Skipper 
 
 ## What is this?
 
-This is a Ruby gem you can use in conjunction with [YourBase](https://yourbase.io)
+This is a Ruby gem you can use in conjunction with [YourBase](https://yourbase.io).
 
 ## What does it do?
 
@@ -17,8 +17,7 @@ run based on the YourBase runtime dependency graph.
 
 ## How do I use this?
 
-Simply add `yourbase-rspec-accelerator` to your Gemfile; when you run your tests
+Simply add `yourbase-rspec-skipper` to your Gemfile; when you run your tests
 locally it will have no impact at all, other than notifying that it won't
 accelerate your tests. When you run your tests in the YourBase CI, they will be
-accelerated where possible. 
-
+accelerated where possible.
