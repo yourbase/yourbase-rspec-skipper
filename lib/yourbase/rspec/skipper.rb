@@ -1,4 +1,3 @@
-
 module YourBase
   module RSpec
     module Skipper 
@@ -19,23 +18,21 @@ begin
   using_rspec = false
 
   begin 
-    require 'rspec'
+    require 'rspec/core'
     using_rspec = true
-  rescue LoadError => e 
+  rescue LoadError => e
     puts "YourBase can't accelerate RSpec because it's not loaded!"
+    return
   end
 
-  if using_rspec
-    begin
-      puts "Loading YourBase RSpec Skipper..."
-      require 'yourbase_test_skipper'
-      ::YourBase::RSpec::Skipper.inject!
-    rescue LoadError => e
-      puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
-    end
+  begin
+    puts "Loading YourBase RSpec Skipper..."
+    require 'yourbase_test_skipper'
+    ::YourBase::RSpec::Skipper.inject!
+  rescue LoadError => e
+    puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
   end
 
 rescue => e
   puts "Unable to load RSpec accelerator: #{e}"
 end
-
