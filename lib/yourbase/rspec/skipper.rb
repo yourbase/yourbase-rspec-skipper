@@ -21,8 +21,9 @@ begin
     require 'rspec/core'
     using_rspec = true
   rescue LoadError => e
+    puts e.message
     puts "YourBase can't accelerate RSpec because it's not loaded!"
-    return
+    # return
   end
 
   begin
