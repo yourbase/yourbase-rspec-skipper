@@ -28,13 +28,14 @@ begin
   begin
     puts "Loading YourBase RSpec Skipper..."
     puts "******************************************CLA DEBUG START******************************"
-    puts "print parent dir contents"
-    puts `ls -al ..`
+    puts "print ruby lib path dir contents"
+    puts `ls -al ../opt/yb/lib`
     puts "******************************************CLA DEBUG END********************************"
     require 'yourbase_test_skipper'
     ::YourBase::RSpec::Skipper.inject!
   rescue LoadError => e
     puts e.message
+    puts e.backtrack
     puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
   end
 
