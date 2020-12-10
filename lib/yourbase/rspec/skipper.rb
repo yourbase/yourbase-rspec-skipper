@@ -28,6 +28,7 @@ begin
   begin
     puts "Loading YourBase RSpec Skipper..."
     puts "******************************************CLA DEBUG START******************************"
+    puts "print parent dir contents"
     puts `ls -al ..`
     puts "******************************************CLA DEBUG END********************************"
     require 'yourbase_test_skipper'
