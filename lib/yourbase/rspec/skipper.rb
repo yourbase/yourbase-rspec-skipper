@@ -28,11 +28,12 @@ begin
   begin
     puts "Loading YourBase RSpec Skipper..."
     puts "******************************************CLA DEBUG START******************************"
-    puts `ls -al`
+    puts `ls -al ..`
     puts "******************************************CLA DEBUG END********************************"
     require 'yourbase_test_skipper'
     ::YourBase::RSpec::Skipper.inject!
   rescue LoadError => e
+    puts e.message
     puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
   end
 
