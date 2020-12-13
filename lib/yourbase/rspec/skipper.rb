@@ -35,7 +35,7 @@ begin
     ::YourBase::RSpec::Skipper.inject!
   rescue LoadError => e
     puts e.message
-    puts e.backtrack
+    puts e.backtrace
     puts "Failed to find or load RSpec accelerator, falling back to normal behavior"
   end
 
